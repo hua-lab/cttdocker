@@ -4,7 +4,6 @@ This is a Docker application package for CTT.  Before running the program in Doc
 1. Clone this package under your home directory.
 
          git clone https://github.com/hua-lab/cttdocker.git
-         mv cttdocker ctt
 
 2. Organize genomes you want to annotate
 
@@ -32,27 +31,27 @@ For each proteome file, do
 
 4. Make an empty directory to output the annotation results from Docker to host.
 
-   Under ~/ctt directory, type
+   Under ~/cttdocker directory, type
    
           mkdir ctt_output
 
 5. Build mybio:cttdocker Docker image
 
-   Under ~/ctt directory, type
+   Under ~/cttdocker directory, type
   
           docker build -t mybio:cttdocker .
       
 6. Run the program in a Docker container (using Skp1 family as an example)
 
-          docker run -i -v ~/ctt/seeds:/ctt/seeds:z \
-                        -v ~/ctt/species_databases:/ctt/species_databases:z \
-                        -v ~/ctt/ctt_output:/ctt/ctt_output:z \
+          docker run -i -v ~/cttdocker/seeds:/cttdocker/seeds:z \
+                        -v ~/cttdocker/species_databases:/cttdocker/species_databases:z \
+                        -v ~/cttdocker/ctt_output:/cttdocker/ctt_output:z \
                         --rm mybio:cttdocker \
                         --seed SKP1_PF01466_seed.txt \
                         --f Skp1 \
                         --superfamily SKP
 
-The annotation results are saved in the ~/ctt/ctt_output directory.
+The annotation results are saved in the ~/cttdocker/ctt_output directory.
 
 
       
