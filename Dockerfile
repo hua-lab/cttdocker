@@ -28,9 +28,9 @@ ADD dependencies/Pfam.tar.gz /usr/share/perl5/Bio/
 COPY dependencies/pfam_scan.pl /usr/bin/pfam_scan.pl
 
 
-RUN mkdir /ctt && mkdir -p /ctt/databases/pfam && mkdir -p /ctt/ctt_output
+RUN mkdir /cttdocker && mkdir -p /cttdocker/databases/pfam && mkdir -p /cttdocker/ctt_output
 
-WORKDIR /ctt/databases/pfam
+WORKDIR /cttdocker/databases/pfam
 
 RUN wget ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz \
 && gunzip Pfam-A.hmm.gz \
@@ -40,14 +40,14 @@ RUN wget ftp://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.hmm.gz \
 && gunzip active_site.dat.gz \
 && hmmpress Pfam-A.hmm
 
-WORKDIR /ctt
+WORKDIR /cttdocker
 
 
-ADD annotation_modules /ctt/annotation_modules
-ADD lib /ctt/lib
+ADD annotation_modules /cttdocker/annotation_modules
+ADD lib /cttdocker/lib
 
 
-COPY ctt.pl /ctt/ctt.pl
+COPY ctt.pl /cttdocker/ctt.pl
 
 ENTRYPOINT ["perl","ctt.pl"]
 
