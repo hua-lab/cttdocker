@@ -39,9 +39,9 @@ For each proteome file, do
       
 5. Run the program in a Docker container (using Skp1 family as an example)
 
-          docker run -i -v ~/ctt/seeds:/ctt/seeds:z \
-                        -v ~/ctt/species_databases:/ctt/species_databases:z \
-                        -v ~/ctt/ctt_output:/ctt/ctt_output:z \
+          docker run -i -v ~/cttdocker/seeds:/cttdocker/seeds:z \
+                        -v ~/cttdocker/species_databases:/cttdocker/species_databases:z \
+                        -v ~/cttdocker/ctt_output:/cttdocker/ctt_output:z \
                         --rm mybio:cttdocker \
                         --seed SKP1_PF01466_seed.txt \
                         --f Skp1 \
