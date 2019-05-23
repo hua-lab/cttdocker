@@ -1,5 +1,5 @@
 # cttdocker
-This is a Docker application package for CTT.  Before running the program in Docker, blastable databases and seed files of gene superfamilies need to be organized.
+This is a Docker application package of CTT designed for running in Docker container in multiple operating systems.  Before running the program in Docker, blastable databases and seed files of gene superfamilies need to be organized.
 
 1. Clone this package under your home (~) directory.
 
@@ -57,7 +57,18 @@ For each proteome file, do
 
 The annotation results are saved in the ~/cttdocker/ctt_output directory.
 
+8. References
 
+Hua Z, Zou C, Shiu SH, Vierstra RD: Phylogenetic comparison of F-Box (FBX) gene superfamily within the plant kingdom reveals divergent evolutionary histories indicative of genomic drift. PLoS One 2011, 6(1):e16219.
+
+Hua Z. Using CTT for comprehensive superfamily gene annotations. Protocolsio. 2019. doi: dx.doi.org/10.17504/protocols.io.zf4f3qw.
+
+Hua Z, Early JM: Closing Target Trimming: a Perl Package for Discovering Hidden Superfamily Loci in Genomes. PLoS One 2019,  (Under review).
+
+
+9. Acknowledgment
+
+This work is supported by a National Science Foundation CAREER award to Z.H. (MCB-1750361).
       
 
 
