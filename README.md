@@ -68,7 +68,7 @@ The annotation results are saved in the ~/cttdocker/ctt_output directory.
 
 9. Acknowledgment
 
-This work is supported by a National Science Foundation CAREER award to Z.H. (MCB-1750361).
+    This work is supported by a National Science Foundation CAREER award to Z.H. (MCB-1750361).
       
 
 
