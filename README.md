@@ -3,7 +3,7 @@ This is a Docker application package for CTT.  Before running the program in Doc
 
 1. Clone this package under your home directory.
 
-         git clone 
+         git clone https://github.com/hua-lab/cttdocker.git
          mv cttdocker ctt
 
 2. Organize genomes you want to annotate
