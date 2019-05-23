@@ -5,13 +5,17 @@ This is a Docker application package for CTT.  Before running the program in Doc
 
          git clone https://github.com/hua-lab/cttdocker.git
 
-2. Organize genomes you want to annotate
+2. Make one perl dependency file, pfam_scan.pl, executable. Under directory ./cttdocker/dependencies do
 
-   1.1. Collect genome and prior whole genome annotation (gff3 and protein sequence) databases and save them under "species_databases". You may collect these databases for as many genomes as you want if your space is allowed.
+         chmod +x ./pfam_scan.pl
+         
+3. Organize genomes you want to annotate
 
-   1.2. Create a tab file, termed "organismal_genome_gff3_proteome_files.tab" to organize the genomes you want to annotate. On each new line, list the genome file name (ended with *.fa), gff3 file name (ended with *.gene.gff3), and protein annotation file name (ended with *.protein.fa). The files should be separated with "tab" but not space characters. You may use vim editor to create this file under the directory of "species_databases".
+   3.1. Collect genome and prior whole genome annotation (gff3 and protein sequence) databases and save them under "species_databases". You may collect these databases for as many genomes as you want if your space is allowed.
 
-   1.3. Make both genome and proteome blast databases. This step requires you to install an NCBI-blast+ package (https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download).   
+   3.2. Create a tab file, termed "organismal_genome_gff3_proteome_files.tab" to organize the genomes you want to annotate. On each new line, list the genome file name (ended with *.fa), gff3 file name (ended with *.gene.gff3), and protein annotation file name (ended with *.protein.fa). The files should be separated with "tab" but not space characters. You may use vim editor to create this file under the directory of "species_databases".
+
+   3.3. Make both genome and proteome blast databases. This step requires you to install an NCBI-blast+ package (https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download).   
 
 For each genome file, do
 
@@ -25,23 +29,23 @@ For each proteome file, do
 
           e.g. makeblastdb -in Athaliana_167_TAIR10.protein.fa -dbtype prot -out Athaliana_167_TAIR10.protein.fa.db
 
-3. Collect seed sequences for superfamilies in which you are interested under directory "seeds".
+4. Collect seed sequences for superfamilies in which you are interested under directory "seeds".
 
     This package uses the seed sequences collected at Pfam as a gold standard for superfamily annotation. Visit https://pfam.xfam.org, find the webpage of the superfamily of interest.  At the "Aligments" link of the superfamily (e.g. https://pfam.xfam.org/family/PF01466#tabview=tab3), generate and download a FASTA format file of the seed sequences without gaps and save it under "seeds" directory. For example, "SKP1_PF01466_seeds.txt". You may combine several seed files and annotate multiple superfamilies at the same time.
 
-4. Make an empty directory to output the annotation results from Docker to host.
+5. Make an empty directory to output the annotation results from Docker to host.
 
    Under ~/cttdocker directory, type
    
           mkdir ctt_output
 
-5. Build mybio:cttdocker Docker image
+6. Build mybio:cttdocker Docker image
 
    Under ~/cttdocker directory, type
   
           docker build -t mybio:cttdocker .
       
-6. Run the program in a Docker container (using Skp1 family as an example)
+7. Run the program in a Docker container (using Skp1 family as an example)
 
           docker run -i -v ~/cttdocker/seeds:/cttdocker/seeds:z \
                         -v ~/cttdocker/species_databases:/cttdocker/species_databases:z \
