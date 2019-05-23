@@ -21,8 +21,6 @@ RUN apt-get update \
 	
 RUN apt-get clean
 
-RUN pwd
-
 WORKDIR /
 ADD dependencies/Pfam.tar.gz /usr/share/perl5/Bio/
 COPY dependencies/pfam_scan.pl /usr/bin/pfam_scan.pl
