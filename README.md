@@ -1,11 +1,11 @@
 # cttdocker
 This is a Docker application package for CTT.  Before running the program in Docker, blastable databases and seed files of gene superfamilies need to be organized
 
-1. Clone this package under your home directory.
+1. Clone this package under your home (~) directory.
 
          git clone https://github.com/hua-lab/cttdocker.git
 
-2. Make one perl dependency file, pfam_scan.pl, executable. Under directory ./cttdocker/dependencies do
+2. Make one perl dependency file, pfam_scan.pl, executable. Under ~/cttdocker/dependencies directory, do
 
          chmod +x ./pfam_scan.pl
          
