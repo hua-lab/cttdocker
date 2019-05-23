@@ -1,7 +1,12 @@
 # cttdocker
 This is a Docker application package for CTT.  Before running the program in Docker, blastable databases and seed files of gene superfamilies need to be organized
 
-1. Organize genomes you want to annotate
+1. Clone this package under your home directory.
+
+         git clone 
+         mv cttdocker ctt
+
+2. Organize genomes you want to annotate
 
    1.1. Collect genome and prior whole genome annotation (gff3 and protein sequence) databases and save them under "species_databases". You may collect these databases for as many genomes as you want if your space is allowed.
 
@@ -21,33 +26,33 @@ For each proteome file, do
 
           e.g. makeblastdb -in Athaliana_167_TAIR10.protein.fa -dbtype prot -out Athaliana_167_TAIR10.protein.fa.db
 
-2. Collect seed sequences for superfamilies in which you are interested under directory "seeds".
+3. Collect seed sequences for superfamilies in which you are interested under directory "seeds".
 
     This package uses the seed sequences collected at Pfam as a gold standard for superfamily annotation. Visit https://pfam.xfam.org, find the webpage of the superfamily of interest.  At the "Aligments" link of the superfamily (e.g. https://pfam.xfam.org/family/PF01466#tabview=tab3), generate and download a FASTA format file of the seed sequences without gaps and save it under "seeds" directory. For example, "SKP1_PF01466_seeds.txt". You may combine several seed files and annotate multiple superfamilies at the same time.
 
-3. Make an empty directory to output the annotation results from Docker to host.
+4. Make an empty directory to output the annotation results from Docker to host.
 
-   Under ~/cttdocker directory, type
+   Under ~/ctt directory, type
    
           mkdir ctt_output
 
-4. Build mybio:cttdocker Docker image
+5. Build mybio:cttdocker Docker image
 
-   Under ~/cttdocker directory, type
+   Under ~/ctt directory, type
   
           docker build -t mybio:cttdocker .
       
-5. Run the program in a Docker container (using Skp1 family as an example)
+6. Run the program in a Docker container (using Skp1 family as an example)
 
-          docker run -i -v ~/cttdocker/seeds:/cttdocker/seeds:z \
-                        -v ~/cttdocker/species_databases:/cttdocker/species_databases:z \
-                        -v ~/cttdocker/ctt_output:/cttdocker/ctt_output:z \
+          docker run -i -v ~/ctt/seeds:/ctt/seeds:z \
+                        -v ~/ctt/species_databases:/ctt/species_databases:z \
+                        -v ~/ctt/ctt_output:/ctt/ctt_output:z \
                         --rm mybio:cttdocker \
                         --seed SKP1_PF01466_seed.txt \
                         --f Skp1 \
                         --superfamily SKP
 
-The annotation results are saved in the ~/cttdocker/ctt_output directory.
+The annotation results are saved in the ~/ctt/ctt_output directory.
 
 
       
