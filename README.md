@@ -1,5 +1,5 @@
 # cttdocker
-This is a Docker application package for CTT.  Before running the program in Docker, blastable databases and seed files of gene superfamilies need to be organized
+This is a Docker application package for CTT.  Before running the program in Docker, blastable databases and seed files of gene superfamilies need to be organized.
 
 1. Clone this package under your home (~) directory.
 
@@ -35,13 +35,13 @@ For each proteome file, do
 
 5. Make an empty directory to output the annotation results from Docker to host.
 
-   Under ~/cttdocker directory, type
+   Under ~/cttdocker directory, do
    
           mkdir ctt_output
 
 6. Build mybio:cttdocker Docker image
 
-   Under ~/cttdocker directory, type
+   Under ~/cttdocker directory, do
   
           docker build -t mybio:cttdocker .
       
