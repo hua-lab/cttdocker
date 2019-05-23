@@ -45,7 +45,7 @@ For each proteome file, do
   
           docker build -t mybio:cttdocker .
       
-7. Run the program in a Docker container (using Skp1 family as an example)
+7. Run the program in a Docker container (using the Skp1 family as an example)
 
           docker run -i -v ~/cttdocker/seeds:/cttdocker/seeds:z \
                         -v ~/cttdocker/species_databases:/cttdocker/species_databases:z \
