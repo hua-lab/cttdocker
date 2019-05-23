@@ -23,7 +23,7 @@ For each proteome file, do
 
 2. Collect seed sequences for superfamilies in which you are interested under directory "seeds".
 
-    This package uses the seed sequences collected at Pfam as a gold standard for superfamily annotation. Visit https://pfam.xfam.org, find the webpage of the superfamily of interest.  At the "Aligments" link of the superfamily (e.g. https://pfam.xfam.org/family/PF01466#tabview=tab3),download a FASTA file of the seed sequences without gaps and save it under "seeds" directory. For example, "SKP1_PF01466_seeds.txt". You may combine several seed files and annotate multiple superfamilies at the same time.
+    This package uses the seed sequences collected at Pfam as a gold standard for superfamily annotation. Visit https://pfam.xfam.org, find the webpage of the superfamily of interest.  At the "Aligments" link of the superfamily (e.g. https://pfam.xfam.org/family/PF01466#tabview=tab3), download a FASTA file of the seed sequences without gaps and save it under "seeds" directory. For example, "SKP1_PF01466_seeds.txt". You may combine several seed files and annotate multiple superfamilies at the same time.
 
 3. Make an empty directory to output the annotation results from Docker to host.
 
