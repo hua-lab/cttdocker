@@ -45,17 +45,9 @@ WORKDIR /ctt
 
 ADD annotation_modules /ctt/annotation_modules
 ADD lib /ctt/lib
-ADD seeds /ctt/seeds
-ADD species_databases /ctt/species_databases
-#ADD step2_output /ctt/step2_output
-#ADD step3_output /ctt/step3_output
-
 
 
 COPY ctt.pl /ctt/ctt.pl
-
-
-
 
 ENTRYPOINT ["perl","ctt.pl"]
 
