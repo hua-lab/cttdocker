@@ -14,7 +14,7 @@ sub genewise_text_parse {
 	#
 	#-diana function in genewise predicted several misc_features. The one with the best gw_score is selected each time
 	my $genewises=join('',@$genewises0);
-	$genewises=~s/(\"|\n|\/\/)//g;
+	$genewises=~s/(\"|\n|\/\/|FT   )//g;
 
 	my @genewises=split /misc_feature/,$genewises;
 
